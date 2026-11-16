@@ -17,6 +17,7 @@ export default function AudioPlayer({ track, isActive, onPlay, onEnded }) {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [muted, setMuted] = useState(false);
 
@@ -45,6 +46,7 @@ export default function AudioPlayer({ track, isActive, onPlay, onEnded }) {
     const audio = audioRef.current;
     if (!audio || !audio.duration) return;
     setProgress((audio.currentTime / audio.duration) * 100);
+    setCurrentTime(audio.currentTime);
   };
 
   const handleSeek = (e) => {
@@ -53,6 +55,7 @@ export default function AudioPlayer({ track, isActive, onPlay, onEnded }) {
     const value = Number(e.target.value);
     audio.currentTime = (value / 100) * audio.duration;
     setProgress(value);
+    setCurrentTime(audio.currentTime);
   };
 
   const toggleMute = () => {
@@ -65,6 +68,7 @@ export default function AudioPlayer({ track, isActive, onPlay, onEnded }) {
   const handleEnded = () => {
     setIsPlaying(false);
     setProgress(0);
+    setCurrentTime(0);
     onEnded?.();
   };
 
@@ -92,7 +96,7 @@ export default function AudioPlayer({ track, isActive, onPlay, onEnded }) {
         <div className="flex items-center justify-between gap-2">
           <h4 className="truncate text-sm font-semibold text-white">{track.title}</h4>
           <span className="shrink-0 text-xs text-slate-500">
-            {isPlaying ? formatTime(audioRef.current?.currentTime) : track.duration}
+            {isPlaying ? formatTime(currentTime) : track.duration}
             {duration ? ` / ${formatTime(duration)}` : ''}
           </span>
         </div>
@@ -106,7 +110,7 @@ export default function AudioPlayer({ track, isActive, onPlay, onEnded }) {
             value={progress}
             onChange={handleSeek}
             aria-label="Seek"
-            className="h-1.5 flex-1 cursor-pointer appearance-none rounded-full bg-slate-700 accent-electric-400"
+            className="h-1.5 w-full min-w-0 flex-1 cursor-pointer appearance-none rounded-full bg-slate-700 accent-electric-400"
             style={{
               background: `linear-gradient(to right, var(--color-electric-500) ${progress}%, var(--color-slate-700) ${progress}%)`,
             }}

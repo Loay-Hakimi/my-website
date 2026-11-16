@@ -59,6 +59,7 @@ export default function AudioVault() {
               <motion.div
                 key={track.id}
                 layout
+                className="min-w-0"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -16 }}
