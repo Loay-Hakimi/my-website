@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --color-obsidian: #05070d;
+  --color-slate-950: #0a0e17;
+  --color-slate-900: #0f1420;
+  --color-slate-850: #131927;
+  --color-slate-800: #1a2233;
+  --color-slate-700: #2a3447;
+  --color-slate-600: #3d4a63;
+
+  --color-electric-400: #5eb8ff;
+  --color-electric-500: #2f9bff;
+  --color-electric-600: #0c7bff;
+  --color-electric-glow: #38bdf8;
+
+  --animate-pulse-slow: pulse-slow 3s ease-in-out infinite;
+  --animate-wave: wave 1.2s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.8s ease-out forwards;
+
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+  @keyframes wave {
+    0%, 100% { transform: scaleY(0.3); }
+    50% { transform: scaleY(1); }
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-slate-800;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-obsidian text-slate-200 font-sans antialiased;
+    background-image:
+      radial-gradient(circle at 20% 0%, rgba(47, 155, 255, 0.12), transparent 40%),
+      radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.08), transparent 40%);
+  }
+
+  ::selection {
+    @apply bg-electric-500/30 text-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-950;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-700 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-electric-600;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12;
+  }
+
+  .section-title {
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white;
+  }
+
+  .section-eyebrow {
+    @apply text-sm font-semibold uppercase tracking-[0.2em] text-electric-400;
+  }
+
+  .glass-card {
+    @apply rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-sm;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-electric-500 px-6 py-3 font-semibold text-slate-950 shadow-lg shadow-electric-500/25 transition-all duration-300 hover:bg-electric-400 hover:shadow-electric-400/40 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-slate-700 bg-slate-900/50 px-6 py-3 font-semibold text-slate-100 backdrop-blur-sm transition-all duration-300 hover:border-electric-500/60 hover:text-electric-400 active:scale-95;
+  }
+}
