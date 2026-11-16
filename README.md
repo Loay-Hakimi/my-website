@@ -59,6 +59,15 @@ npm run preview
 npm run lint
 ```
 
+## 🚢 Deployment
+
+This repo ships ready-to-deploy configs for both hosts (SPA fallback included):
+
+- **Vercel** — [`vercel.json`](vercel.json): import the repo at [vercel.com/new](https://vercel.com/new); framework **Vite**, build `npm run build`, output `dist` are auto-detected.
+- **Netlify** — [`netlify.toml`](netlify.toml): "Add new site → Import an existing project" at [app.netlify.com](https://app.netlify.com); build `npm run build`, publish `dist` are read from the file.
+
+No build secrets are required — it's a static front end.
+
 ## 📁 Structure
 
 ```
