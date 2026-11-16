@@ -1,5 +1,5 @@
 import { AudioWaveform } from 'lucide-react';
-import { socialLinks } from './Contact';
+import { socialLinks } from '../data/socialData';
 
 export default function Footer() {
   return (

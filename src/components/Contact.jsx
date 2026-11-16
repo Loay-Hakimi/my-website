@@ -1,13 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, CheckCircle2, Github, Linkedin, Instagram } from 'lucide-react';
-
-// Update these with your real profile URLs.
-export const socialLinks = [
-  { label: 'GitHub', icon: Github, href: 'https://github.com/yourusername' },
-  { label: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/in/yourusername' },
-  { label: 'Instagram', icon: Instagram, href: 'https://instagram.com/yourusername' },
-];
+import { Send, CheckCircle2 } from 'lucide-react';
+import { socialLinks } from '../data/socialData';
 
 const initialForm = { name: '', email: '', message: '' };
 
