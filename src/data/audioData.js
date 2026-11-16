@@ -1,4 +1,6 @@
-// Replace the `src` paths with your own audio files in /public/audio/
+// ⚠️ PLACEHOLDER DATA — these demo tracks reference audio files that are not
+// in the repo yet. Add your real .mp3/.wav files to /public/audio/ and update
+// the `src` paths below. Titles/descriptions are sample copy.
 export const audioCategories = ['All', 'Commercials', 'Corporate', 'IVR', 'Explainer'];
 
 export const audioTracks = [

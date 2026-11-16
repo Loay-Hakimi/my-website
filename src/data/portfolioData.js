@@ -1,4 +1,7 @@
-// Replace these with your real projects, links, and images.
+// ⚠️ PLACEHOLDER DATA — these are sample projects, not real deployments.
+// Replace each entry with your real projects, GitHub links, and images.
+// Every `githubUrl` below uses a placeholder `yourusername` handle.
+// Suggested real swaps: securecore, cryptoguard, sentinelscrape, securenotes, my-website.
 export const portfolioProjects = [
   {
     id: 1,

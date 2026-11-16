@@ -1,6 +1,7 @@
 import { Mic, Code2, TrendingUp } from 'lucide-react';
 
-// Update pricing, descriptions, and features as needed.
+// ⚠️ PLACEHOLDER PRICING — the prices below are sample defaults, not final
+// rates. Update pricing, descriptions, and features to match your real offers.
 export const servicesData = [
   {
     id: 'voice-over',
